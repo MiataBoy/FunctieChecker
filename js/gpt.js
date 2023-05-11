@@ -1,4 +1,3 @@
-const defaultContent = "Only accept inquiries with functions in code, otherwise return \"i cannot assist you with anything besides code functions\". The function must pass the following requirements:"
 const functionNames = "The name of the function must describe exactly what the function does, and must start with a verb. Additionally, the entire function must be comprised in ONE language and be snake_case."
 const parameterNames = "Parameter names must describe exactly what the parameter is for, must be comprised of ONE language and must be snake_case."
 const returnValues = "The return value should remain useful to the user under any circumstance."
@@ -9,8 +8,7 @@ const printInstruction = "The function must not contain any print instructions, 
 const inputInstruction = "The function must not contain any input instructions, unless the function is dedicated to receiving, and/or submitting inputs."
 const unrecoverableErrors = "The function must not contain error raises-, exits or prints"
 
-async function fetchCompletions(text) {
-    console.log(text)
+async function fetchCompletions(text, defaultContent) {
     const url = "https://free.churchless.tech/v1/chat/completions";
     const adata = {
         "model": "gpt-3.5-turbo",
