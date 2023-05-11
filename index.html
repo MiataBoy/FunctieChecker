@@ -27,7 +27,21 @@
             <p>Deze website helpt jou om je functie te checken met gebruik van de OpenAI ChatGPT volgens verschillende criteria.</p>
             <p class="text-warning mb-4">Lees de <a href="https://openai.com/policies/privacy-policy">OpenAI privacy policy</a> voor je deze website gebruikt.</p>
             <div>
-                <input type="text" id="textInput" placeholder="Your function code" class="border-primary" style="border-radius: 25px">
+                <textarea type="text" id="textInput" placeholder="Your function code" class="border-primary" style="border-radius: 25px"></textarea>
+
+                <h3>check voor:</h3>
+                <div class="checkbox-container">
+                    <label><input type="checkbox">Selecteer alles</label>
+                    <label><input type="checkbox" id="functionNames">Functie namen</label>
+                    <label><input type="checkbox" id="parameterNames">Parameter namen</label>
+                    <label><input type="checkbox" id="returnValues">return waardes</label>
+                    <label><input type="checkbox" id="localVars">lokale variabelen</label>
+                    <label><input type="checkbox" id="oneJob">Doet één taak</label>
+                    <label><input type="checkbox" id="reusable">Herbruikbaar</label>
+                    <label><input type="checkbox" id="printInstruction">Print instructies</label>
+                    <label><input type="checkbox" id="inputInstruction">Input instructies</label>
+                    <label><input type="checkbox" id="unrecoverableErrors">onherstelbare fouten</label>
+                </div>
             </div>
             <button onclick="handleButtonClick()" class="btn btn-primary m-2">Submit</button>
             <div>
