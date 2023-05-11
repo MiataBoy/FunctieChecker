@@ -5,7 +5,13 @@ nav ul {
     overflow: hidden;
     background-color: #333;
 }
-
+textarea {
+    overflow: hidden;
+    min-height: 4em;
+    resize: none; /* Disable manual resizing */
+    border-radius: 25px;
+    width: 40%
+}
 nav li {
     float: left;
 }
