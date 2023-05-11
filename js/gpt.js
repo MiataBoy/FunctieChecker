@@ -63,6 +63,8 @@ function handleButtonClick() {
     const textInput = document.getElementById("textInput");
     const text = textInput.value;
 
+    const defaultContent = "Only accept inquiries with functions in code, otherwise return \"i cannot assist you with anything besides code functions\". The function must pass the following requirements:"
+
     fetchCompletions(text).then((content) => {
         const output = document.getElementById("output");
         output.value = content;
