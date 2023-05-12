@@ -61,9 +61,53 @@ function handleButtonClick() {
     const textInput = document.getElementById("textInput");
     const text = textInput.value;
 
-    const defaultContent = "Only accept inquiries with functions in code, otherwise return \"i cannot assist you with anything besides code functions\". The function must pass the following requirements:"
+    let defaultContent = "Only accept inquiries with functions in code and don't show any examples. Respond in dutch and dont translate anything.;,lki8u 777, otherwise return \"i cannot assist you with anything besides code functions\". The function must pass only the following requirements:"
+    console.info(defaultContent)
+    if (document.getElementById('SelectALL').checked) {
+        defaultContent += functionNames;
+        defaultContent += returnValues;
+        defaultContent += localVars;
+        defaultContent += oneJob;
+        defaultContent += reusable;
+        defaultContent += printInstruction;
+        defaultContent += inputInstruction;
+        defaultContent += unrecoverableErrors;
+    }
+    else {
+        if (document.getElementById('functionNames').checked) {
+            defaultContent += functionNames;
+        }
 
-    fetchCompletions(text).then((content) => {
+        if (document.getElementById('returnValues').checked) {
+            defaultContent += returnValues;
+        }
+
+        if (document.getElementById('localVars').checked) {
+            defaultContent += localVars;
+        }
+
+        if (document.getElementById('oneJob').checked) {
+            defaultContent += oneJob;
+        }
+
+        if (document.getElementById('reusable').checked) {
+            defaultContent += reusable;
+        }
+
+        if (document.getElementById('printInstruction').checked) {
+            defaultContent += printInstruction;
+        }
+
+        if (document.getElementById('inputInstruction').checked) {
+            defaultContent += inputInstruction;
+        }
+
+        if (document.getElementById('unrecoverableErrors').checked) {
+            defaultContent += unrecoverableErrors;
+        }
+    }
+
+    fetchCompletions(text,defaultContent).then((content) => {
         const output = document.getElementById("output");
         output.value = content;
         autoResize(document.getElementById('output'));
